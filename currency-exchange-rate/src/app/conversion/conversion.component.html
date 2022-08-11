@@ -1,0 +1,47 @@
+<form (ngSubmit)="onSubmit()">
+    <section>
+    <mat-form-field appearance="outline" >
+      <mat-label>From</mat-label>
+      <mat-select [(ngModel)]="currencyExchange.from" name="from" >
+        <mat-option *ngFor="let currency of currencies" [value]="currency.symbol">
+          {{currency.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </section>  
+    <section>
+    <mat-form-field appearance="outline">
+      <mat-label>To</mat-label>
+      <mat-select [(ngModel)]="currencyExchange.to" name="to">
+        <mat-option *ngFor="let currency of currencies" [value]="currency.symbol">
+          {{currency.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</section> 
+<section>
+    <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="currencyExchange.amount" type="number" min="1" name="amount" placeholder="amount">
+    </mat-form-field>
+</section> 
+<section>
+    <button mat-raised-button color="primary" type="submit">Convert</button></section>
+
+    
+  <section>
+    <mat-form-field appearance="outline">
+        <mat-label>Currency Rate</mat-label>
+        <input matInput [(ngModel)]="currencyExchange.currencyRate" name="currencyRate" placeholder="currencyRate">
+    </mat-form-field>
+</section> 
+<section>
+    <mat-form-field appearance="outline">
+        <mat-label>Total Calculated</mat-label>
+        <input matInput  [(ngModel)]="currencyExchange.totalCalculatedAmount" name="totalCalculatedAmount" placeholder="totalCalculatedAmount">
+    </mat-form-field>
+</section>
+<section>
+  <div *ngFor="let message of messages"> {{message}} </div>
+</section>
+  </form>
